@@ -1,27 +1,29 @@
+import axios from "axios";
+
+const BASE_URL = "https://dummyjson.com";
+
 export const getAllProducts = () => {
-  return fetch("https://dummyjson.com/products").then((res) => res.json());
+  return axios.get(`${BASE_URL}/products`).then((res) => res.data);
 };
+
 export const getProductsByCategory = (category) => {
-  return fetch(`https://dummyjson.com/products/category/${category}`).then(
-    (res) => res.json()
-  );
+  return axios.get(`${BASE_URL}/products/category/${category}`).then((res) => res.data);
 };
+
 export const getCart = () => {
-  return fetch("https://dummyjson.com/carts/1").then((res) => res.json());
+  return axios.get(`${BASE_URL}/carts/1`).then((res) => res.data);
 };
 
 export const addToCart = (id) => {
-  return fetch("https://dummyjson.com/carts/add", {
-    method: "POST",
+  return axios.post(`${BASE_URL}/carts/add`, {
+    userId: 1,
+    products: [
+      {
+        id: id,
+        quantity: 1,
+      },
+    ],
+  }, {
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      userId: 1,
-      products: [
-        {
-          id: id,
-          quantity: 1,
-        },
-      ],
-    }),
-  }).then((res) => res.json());
+  }).then((res) => res.data);
 };

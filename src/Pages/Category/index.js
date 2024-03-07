@@ -2,7 +2,7 @@ import Products from "../../Components/Products";
 
 function Category() {
   return (
-    <div>
+    <div> 
       <Products />
     </div>
   );

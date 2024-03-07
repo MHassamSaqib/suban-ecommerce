@@ -25,7 +25,7 @@
 .pageContent{
     display: flex;
     flex: 1;
-    overflow-y: auto;
+    /* overflow-y: auto; */
     margin-top: 2px;
 }
 .appFooter{
